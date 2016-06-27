@@ -1,0 +1,24 @@
+﻿@model NTTool.Models.ViewModel
+
+<dl>
+    <dt><strong>Installled list of software on machine : @Model.MachineInfo.MachineName</strong></dt>
+
+
+    @if (Model.SoftwareList == null || Model.SoftwareList.Count==0)
+    {
+         <dd>
+                <span>Access Denied</span>
+            </dd>
+    }
+    else
+    {
+        foreach (var item in Model.SoftwareList)
+        {
+            <dd>
+                Html.DisplayFor(modelItem => item.DisplayName) || Html.DisplayFor(modelItem => item.DisplayVersion)
+            </dd>
+        }
+    }
+
+
+</dl>

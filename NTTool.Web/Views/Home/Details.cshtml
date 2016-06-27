@@ -1,0 +1,63 @@
+﻿@model NTTool.Models.ViewModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Installled software list</h2>
+
+@*<table>
+    <tr>
+
+        <th>
+            @Model.MachineInfo.MachineName
+        </th>
+
+        <th>
+            @Model.MachineInfo.OpratingSystem
+        </th>
+
+        <th>
+            @Model.MachineInfo.OpratingSystemVersion
+
+        </th>
+
+        <th>
+            @Model.MachineInfo.SystemDirectory
+        </th>
+
+</table>*@
+
+
+<table>
+    <tr>
+
+        <th>
+            Software Name
+        </th>
+
+        <th>
+            Version
+        </th>
+
+
+
+    </tr>
+
+    @foreach (var item in Model.SoftwareList)
+    {
+        <tr>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.DisplayName)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.DisplayVersion)
+            </td>
+
+
+        </tr>
+    }
+
+</table>

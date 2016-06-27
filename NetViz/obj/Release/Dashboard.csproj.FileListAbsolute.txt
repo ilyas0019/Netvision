@@ -1,0 +1,15 @@
+D:\Projects\NetTool\Dashboard\bin\Release\Dashboard.exe.config
+D:\Projects\NetTool\Dashboard\bin\Release\Dashboard.exe.manifest
+D:\Projects\NetTool\Dashboard\bin\Release\Dashboard.application
+D:\Projects\NetTool\Dashboard\bin\Release\Dashboard.exe
+D:\Projects\NetTool\Dashboard\bin\Release\Dashboard.pdb
+D:\Projects\NetTool\Dashboard\bin\Release\NTTool.Core.dll
+D:\Projects\NetTool\Dashboard\bin\Release\NTTool.Core.pdb
+D:\Projects\NetTool\Dashboard\obj\Release\Dashboard.csprojResolveAssemblyReference.cache
+D:\Projects\NetTool\Dashboard\obj\Release\Dashboard.Dashboard.resources
+D:\Projects\NetTool\Dashboard\obj\Release\Dashboard.Properties.Resources.resources
+D:\Projects\NetTool\Dashboard\obj\Release\Dashboard.csproj.GenerateResource.Cache
+D:\Projects\NetTool\Dashboard\obj\Release\Dashboard.exe.manifest
+D:\Projects\NetTool\Dashboard\obj\Release\Dashboard.application
+D:\Projects\NetTool\Dashboard\obj\Release\Dashboard.exe
+D:\Projects\NetTool\Dashboard\obj\Release\Dashboard.pdb

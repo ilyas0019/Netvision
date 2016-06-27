@@ -1,0 +1,4 @@
+D:\Projects\NetTool\NTTool.Core\bin\Release\NTTool.Core.dll
+D:\Projects\NetTool\NTTool.Core\bin\Release\NTTool.Core.pdb
+D:\Projects\NetTool\NTTool.Core\obj\Release\NTTool.Core.dll
+D:\Projects\NetTool\NTTool.Core\obj\Release\NTTool.Core.pdb

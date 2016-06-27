@@ -1,0 +1,8 @@
+D:\Projects\NetVis\NetVIs\NTTool.Core\bin\Debug\NTTool.Core.dll
+D:\Projects\NetVis\NetVIs\NTTool.Core\bin\Debug\NTTool.Core.pdb
+D:\Projects\NetVis\NetVIs\NTTool.Core\obj\Debug\NTTool.Core.dll
+D:\Projects\NetVis\NetVIs\NTTool.Core\obj\Debug\NTTool.Core.pdb
+D:\Projects\Netvision\NTTool.Core\bin\Debug\NTTool.Core.dll
+D:\Projects\Netvision\NTTool.Core\bin\Debug\NTTool.Core.pdb
+D:\Projects\Netvision\NTTool.Core\obj\Debug\NTTool.Core.dll
+D:\Projects\Netvision\NTTool.Core\obj\Debug\NTTool.Core.pdb
