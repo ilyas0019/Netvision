@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="NetVis.exe" size="46080">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="NetVis.exe" size="46592">
       <assemblyIdentity name="NetVis" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>IEEXqbF+Uy7kzO35vo+xfOFzUg5/arUemwVsnLaAefs=</dsig:DigestValue>
+        <dsig:DigestValue>MGTY0iWKDdskv/1Bl9ZTyTJgwsbglVUgmHJ9QTmymUI=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

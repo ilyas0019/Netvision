@@ -39,7 +39,9 @@
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.txtFilter = new System.Windows.Forms.ToolStripTextBox();
+            this.btnFilter = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnList = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -58,6 +60,9 @@
             this.splitContainer = new System.Windows.Forms.SplitContainer();
             this.lblInfo = new System.Windows.Forms.Label();
             this.lstView = new System.Windows.Forms.ListView();
+            this.contextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.showMachineDetails = new System.Windows.Forms.ToolStripMenuItem();
+            this.rdcMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.lstSoftware = new System.Windows.Forms.ListView();
             this.lblStorage = new System.Windows.Forms.Label();
             this.lstStorage = new System.Windows.Forms.ListView();
@@ -66,11 +71,7 @@
             this.lstIPAddress = new System.Windows.Forms.ListBox();
             this.lstNetworkDevices = new System.Windows.Forms.ListView();
             this.lblSoftware = new System.Windows.Forms.Label();
-            this.contextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.showMachineDetails = new System.Windows.Forms.ToolStripMenuItem();
-            this.rdcMenu = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnFilter = new System.Windows.Forms.ToolStripButton();
-            this.btnList = new System.Windows.Forms.ToolStripButton();
+            this.dlgSave = new System.Windows.Forms.SaveFileDialog();
             this.toolStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -159,10 +160,31 @@
             this.txtFilter.ToolTipText = "Search Machine ";
             this.txtFilter.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtFilter_KeyUp);
             // 
+            // btnFilter
+            // 
+            this.btnFilter.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnFilter.Image = global::NetVis.Properties.Resources.find;
+            this.btnFilter.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnFilter.Name = "btnFilter";
+            this.btnFilter.Size = new System.Drawing.Size(23, 22);
+            this.btnFilter.Text = "toolStripButton3";
+            this.btnFilter.ToolTipText = "Search Machine ";
+            this.btnFilter.Click += new System.EventHandler(this.btnFilter_Click);
+            // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+            // 
+            // btnList
+            // 
+            this.btnList.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnList.Image = global::NetVis.Properties.Resources.Search_computer;
+            this.btnList.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnList.Name = "btnList";
+            this.btnList.Size = new System.Drawing.Size(23, 22);
+            this.btnList.Text = "Scan Network";
+            this.btnList.Click += new System.EventHandler(this.btnList_Click);
             // 
             // toolStripSeparator4
             // 
@@ -194,21 +216,21 @@
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.saveToolStripMenuItem.Text = "Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.openToolStripMenuItem.Text = "Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -256,7 +278,7 @@
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.lblScanning,
             this.pgInfo});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 703);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 720);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(1248, 22);
             this.statusStrip1.TabIndex = 34;
@@ -327,6 +349,29 @@
             this.lstView.UseCompatibleStateImageBehavior = false;
             this.lstView.View = System.Windows.Forms.View.Details;
             this.lstView.DoubleClick += new System.EventHandler(this.lstView_Click);
+            // 
+            // contextMenu
+            // 
+            this.contextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.showMachineDetails,
+            this.rdcMenu});
+            this.contextMenu.Name = "contextMenu";
+            this.contextMenu.Size = new System.Drawing.Size(213, 48);
+            // 
+            // showMachineDetails
+            // 
+            this.showMachineDetails.Name = "showMachineDetails";
+            this.showMachineDetails.Size = new System.Drawing.Size(212, 22);
+            this.showMachineDetails.Text = "Show Machine Details";
+            this.showMachineDetails.Click += new System.EventHandler(this.lstView_Click);
+            // 
+            // rdcMenu
+            // 
+            this.rdcMenu.Image = global::NetVis.Properties.Resources._1467036508_knetworkconf;
+            this.rdcMenu.Name = "rdcMenu";
+            this.rdcMenu.Size = new System.Drawing.Size(212, 22);
+            this.rdcMenu.Text = "Connect Remote Machine";
+            this.rdcMenu.Click += new System.EventHandler(this.rdcMenu_Click);
             // 
             // lstSoftware
             // 
@@ -421,56 +466,17 @@
             this.lblSoftware.Text = "Info";
             this.lblSoftware.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // contextMenu
+            // dlgSave
             // 
-            this.contextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.showMachineDetails,
-            this.rdcMenu});
-            this.contextMenu.Name = "contextMenu";
-            this.contextMenu.Size = new System.Drawing.Size(213, 48);
-            // 
-            // showMachineDetails
-            // 
-            this.showMachineDetails.Name = "showMachineDetails";
-            this.showMachineDetails.Size = new System.Drawing.Size(212, 22);
-            this.showMachineDetails.Text = "Show Machine Details";
-            this.showMachineDetails.Click += new System.EventHandler(this.lstView_Click);
-            // 
-            // rdcMenu
-            // 
-            this.rdcMenu.Image = global::NetVis.Properties.Resources._1467036508_knetworkconf;
-            this.rdcMenu.Name = "rdcMenu";
-            this.rdcMenu.Size = new System.Drawing.Size(212, 22);
-            this.rdcMenu.Text = "Connect Remote Machine";
-            this.rdcMenu.Click += new System.EventHandler(this.rdcMenu_Click);
-            // 
-            // btnFilter
-            // 
-            this.btnFilter.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnFilter.Image = global::NetVis.Properties.Resources.find;
-            this.btnFilter.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnFilter.Name = "btnFilter";
-            this.btnFilter.Size = new System.Drawing.Size(23, 22);
-            this.btnFilter.Text = "toolStripButton3";
-            this.btnFilter.ToolTipText = "Search Machine ";
-            this.btnFilter.Click += new System.EventHandler(this.btnFilter_Click);
-            // 
-            // btnList
-            // 
-            this.btnList.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnList.Image = global::NetVis.Properties.Resources.Search_computer;
-            this.btnList.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnList.Name = "btnList";
-            this.btnList.Size = new System.Drawing.Size(23, 22);
-            this.btnList.Text = "Scan Network";
-            this.btnList.Click += new System.EventHandler(this.btnList_Click);
+            this.dlgSave.DefaultExt = "*.bin";
+            this.dlgSave.Filter = "Saved Files | *.bin";
             // 
             // NetVis
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1240, 742);
+            this.ClientSize = new System.Drawing.Size(1240, 759);
             this.Controls.Add(this.splitContainer);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.chkOnline);
@@ -546,6 +552,7 @@
         private System.Windows.Forms.ContextMenuStrip contextMenu;
         private System.Windows.Forms.ToolStripMenuItem rdcMenu;
         private System.Windows.Forms.ToolStripMenuItem showMachineDetails;
+        private System.Windows.Forms.SaveFileDialog dlgSave;
     }
 }
 

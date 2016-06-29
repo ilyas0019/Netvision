@@ -320,19 +320,6 @@ namespace NTTool
             lstView.Items.Add(lvi);
             pgInfo.Value++;
 
-
-            //Button buttonAction = new Button();
-            //buttonAction.Text = "Click me";
-            //buttonAction.BackColor = SystemColors.ButtonFace;
-            //buttonAction.Click += buttonAction_Click;
-            //Point p = this.lstView.Items[1].Position;
-            //p.X -= 21;
-            //buttonAction.Location = p;
-            //buttonAction.Size = this.lstView.Items[1].Bounds.Size;
-            //this.lstView.Controls.Add(buttonAction);
-
-
-
         }
 
         private void ResetPager(int maxValue)
@@ -435,10 +422,15 @@ namespace NTTool
         {
             if (ListOfMachines != null)
             {
-                var dataFilePath = Application.StartupPath + "\\";
-                var fileName = Guid.NewGuid().ToString() + "_" + DateTime.Now.Ticks.ToString() + ".bin";
+                ValidateFolder();
+
+                dlgSave.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\" + Application.ProductName;
                 
-                using (Stream stream = File.Open(dataFilePath + fileName, FileMode.Create))
+                dlgSave.FileName=Guid.NewGuid().ToString() + "_" + DateTime.Now.Ticks.ToString() + ".bin";
+
+                dlgSave.ShowDialog();
+
+                using (Stream stream = File.Open(dlgSave.FileName, FileMode.Create))
                 {
                     BinaryFormatter bin = new BinaryFormatter();
                     bin.Serialize(stream, ListOfMachines);
@@ -447,6 +439,15 @@ namespace NTTool
             else
             {
                 MessageBox.Show("No machine are listed.");
+            }
+
+        }
+
+        private void ValidateFolder()
+        {
+            if (!Directory.Exists(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\" + Application.ProductName))
+            { 
+                Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\" + Application.ProductName);
             }
 
         }
@@ -471,8 +472,9 @@ namespace NTTool
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            ValidateFolder();
 
-            dlgOpen.InitialDirectory = Application.StartupPath;
+            dlgOpen.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\" + Application.ProductName;
             dlgOpen.ShowDialog();
             var fileName = dlgOpen.FileName;
             if (!string.IsNullOrEmpty(fileName))
