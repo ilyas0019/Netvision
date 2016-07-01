@@ -57,7 +57,7 @@ namespace NTTool
             }
         }
 
-        private void ClearForm()
+        private void ResetForm()
         {
             lblInfo.Text = "";
             lblIPAddresses.Text = "";
@@ -76,7 +76,6 @@ namespace NTTool
         private void btnFilter_Click(object sender, EventArgs e)
         {
             FilterFill();
-
         }
 
         private void FilterFill()
@@ -85,7 +84,7 @@ namespace NTTool
 
             if (ListOfMachines != null)
             {
-                FillListOfMachines(SearchMachine(txtFilter.Text.ToUpper()));
+                PopulateListOfMachines(SearchMachine(txtFilter.Text.ToUpper()));
             }
             else
             {
@@ -122,14 +121,12 @@ namespace NTTool
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-
             }
         }
 
         private void lstNetworkDevices_Click(object sender, EventArgs e)
         {
             GetListofIPAddresses();
-
         }
 
         private void FillStorage()
@@ -148,8 +145,6 @@ namespace NTTool
                 lstStorage.Items.Add(lvi);
             }
 
-
-
             lblStorage.Text = string.Format("{0} Storage Devices found on machine {1} ", objMachine.ListOfStoragekDevices == null ? 0 : objMachine.ListOfStoragekDevices.Count, SelectedMachineName);
         }
 
@@ -158,13 +153,12 @@ namespace NTTool
             try
             {
 
-                ClearForm();
+                ResetForm();
 
                 lstView.Items.Clear();
                 lstView.FullRowSelect = true;
                 lstView.SmallImageList = imgList;
 
-                // Attach Subitems to the ListView
                 lstView.Columns.Clear();
                 lstView.Columns.Add("Machine Status", 100, HorizontalAlignment.Left);
                 lstView.Columns.Add("Machine Name", 100, HorizontalAlignment.Left);
@@ -184,7 +178,6 @@ namespace NTTool
                 lstSoftware.Columns.Add("Publisher", 100, HorizontalAlignment.Left);
                 lstSoftware.Columns.Add("Uninstall Location", 0, HorizontalAlignment.Left);
 
-                // Attach Subitems to the ListView
                 lstNetworkDevices.Columns.Clear();
                 lstNetworkDevices.Columns.Add("Device ID", 60, HorizontalAlignment.Left);
                 lstNetworkDevices.Columns.Add("Adapter Type", 100, HorizontalAlignment.Left);
@@ -210,8 +203,6 @@ namespace NTTool
             
         }
 
-       
-
         private void FillDomain()
         {
 
@@ -227,13 +218,13 @@ namespace NTTool
         private void FillListOfMachines(string searchString = null)
         {
             
-            ClearForm();
+            ResetForm();
 
             InitCursor();
             
             ListOfMachines = GetNetworkMachineData(searchString);
 
-            FillListOfMachines(ListOfMachines);
+            PopulateListOfMachines(ListOfMachines);
 
             ResetCursor();
 
@@ -267,7 +258,7 @@ namespace NTTool
             return listOfMachines;
         }
 
-        public void FillListOfMachines(List<MachineEntity> listOfMachines)
+        public void PopulateListOfMachines(List<MachineEntity> listOfMachines)
         {
             lblSoftware.Text = "";
             lblInfo.Text = "";
@@ -277,20 +268,19 @@ namespace NTTool
             lstView.FullRowSelect = true;
             lstSoftware.Items.Clear();
                       
-            MachineEntity objMachine = new MachineEntity();
+            var objMachine = new MachineEntity();
 
             ResetPager(listOfMachines.Count);
             Online = 0;
             foreach (var item in listOfMachines)
             {
-                FillMachineDetail(item);
+               PopulateMachineDetail(item);
             }
-
            
             lblInfo.Text = string.Format("Total no of machines is '{0}' currently online '{1}'", listOfMachines.Count, Online);
         }
 
-        private void FillMachineDetail(MachineEntity item)
+        private void PopulateMachineDetail(MachineEntity item)
         {
          
             if (Dns.GetHostName() == item.MachineName)
@@ -319,7 +309,7 @@ namespace NTTool
             lvi.ToolTipText = "Double click to see detail of selected machine";
             lstView.Items.Add(lvi);
             pgInfo.Value++;
-
+            lstView.ShowItemToolTips = true;
         }
 
         private void ResetPager(int maxValue)
@@ -405,11 +395,11 @@ namespace NTTool
             if (chkOnline.Checked)
             {
                 var list = ListOfMachines.Where(x => x.MachineStatus == MachineStatus.Online).ToList();
-                FillListOfMachines(list);
+                PopulateListOfMachines(list);
             }
             else
             {
-                FillListOfMachines(ListOfMachines);
+                PopulateListOfMachines(ListOfMachines);
             }
         }
 
@@ -465,8 +455,8 @@ namespace NTTool
                 BinaryFormatter bin = new BinaryFormatter();
 
                 ListOfMachines = (List<MachineEntity>)bin.Deserialize(stream);
-                ClearForm();
-                FillListOfMachines(ListOfMachines);
+                ResetForm();
+                PopulateListOfMachines(ListOfMachines);
             }
         }
 
@@ -508,7 +498,7 @@ namespace NTTool
             Cursor.Current = Cursors.WaitCursor;
         }
 
-        public override void ResetCursor()
+        protected override void ResetCursor()
         {
             Cursor.Current = Cursors.Default;
         }
@@ -517,9 +507,10 @@ namespace NTTool
         {
             RemoteConnect(SelectedMachineName);
         }
-        protected void RemoteConnect(string machine)
+
+        private void RemoteConnect(string machine)
         {
-            Process rdcProcess = new Process();
+            var rdcProcess = new Process();
             rdcProcess.StartInfo.FileName = Environment.ExpandEnvironmentVariables(@"%SystemRoot%\system32\mstsc.exe");
             rdcProcess.StartInfo.Arguments = "/v " + machine;
             rdcProcess.Start();
@@ -529,8 +520,6 @@ namespace NTTool
         {
             RemoteConnect(SelectedMachineName);
         }
-
-        public EventHandler btn_Click { get; set; }
 
         private void rdcMenu_Click(object sender, EventArgs e)
         {
