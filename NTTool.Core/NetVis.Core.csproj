@@ -42,9 +42,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\UninstallProvider.cs" />
     <Compile Include="Classes\SoftwareComparer.cs" />
     <Compile Include="Classes\DomainProvider.cs" />
     <Compile Include="Core\RegistryKeyQuery.cs" />
+    <Compile Include="Interface\IUninstallProvider.cs" />
     <Compile Include="Interface\IWakeUp.cs" />
     <Compile Include="Classes\WakeUp.cs" />
     <Compile Include="Interface\IDomainProvider.cs" />

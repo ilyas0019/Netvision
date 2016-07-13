@@ -498,7 +498,7 @@ namespace NTTool
             Cursor.Current = Cursors.WaitCursor;
         }
 
-        protected override void ResetCursor()
+        public override void ResetCursor()
         {
             Cursor.Current = Cursors.Default;
         }
