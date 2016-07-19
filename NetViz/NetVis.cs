@@ -525,5 +525,20 @@ namespace NTTool
         {
             RemoteConnect(SelectedMachineName);
         }
+
+        private void toolUninstall_Click(object sender, EventArgs e)
+        {
+            var pram = lstSoftware.SelectedItems[0].SubItems[4].Text;
+
+            var filePath = pram.Replace("\"", string.Empty);
+
+            if (filePath.IndexOf(".exe") > 1)
+            {
+                filePath = filePath.Substring(0, filePath.IndexOf(".exe") + 4);
+            }
+
+            var obj = new UninstallProvider();
+            obj.InvokeUninstaller(SelectedMachineName , filePath, "");
+        }
     }
 }

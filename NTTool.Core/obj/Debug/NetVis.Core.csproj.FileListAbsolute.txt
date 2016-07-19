@@ -10,3 +10,4 @@ D:\Projects\Netvision\Netvision\NTTool.Core\bin\Debug\NTTool.Core.dll
 D:\Projects\Netvision\Netvision\NTTool.Core\bin\Debug\NTTool.Core.pdb
 D:\Projects\Netvision\Netvision\NTTool.Core\obj\Debug\NTTool.Core.dll
 D:\Projects\Netvision\Netvision\NTTool.Core\obj\Debug\NTTool.Core.pdb
+D:\Projects\Netvision\Netvision\NTTool.Core\obj\Debug\NetVis.Core.csprojResolveAssemblyReference.cache

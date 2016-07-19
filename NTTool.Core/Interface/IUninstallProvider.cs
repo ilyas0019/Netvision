@@ -7,6 +7,6 @@ namespace NTTool.Core.Interfaces
 {
     public interface IUninstallProvider
     {
-        bool InvokeUninstaller(string machineName, string uninstallString);
+        bool InvokeUninstaller(string machineName, string unInstallFileName, string unInstallAurguments);
     }
 }

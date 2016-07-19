@@ -42,26 +42,26 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="NetVis.exe" size="46592">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="NetVis.exe" size="47104">
       <assemblyIdentity name="NetVis" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>VlrzBafTomJomrdvEHr6smWc3K07Te0tUyBehpiMVSM=</dsig:DigestValue>
+        <dsig:DigestValue>+3kUL7VGCB7Y8PkU7bdfmfFCabkOBzUC20F78YkGupE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="NTTool.Core.dll" size="33280">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="NTTool.Core.dll" size="33792">
       <assemblyIdentity name="NTTool.Core" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>gX656UO2ZMRCAkvbQnLUuqIl+zhvp1YZB4DCQ3HRGaI=</dsig:DigestValue>
+        <dsig:DigestValue>xyr2POsYNLIA2u7g0KGbpWpfCldDNiYHq8DYlQcmO4s=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

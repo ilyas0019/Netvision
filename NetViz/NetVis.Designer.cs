@@ -72,6 +72,8 @@
             this.lstNetworkDevices = new System.Windows.Forms.ListView();
             this.lblSoftware = new System.Windows.Forms.Label();
             this.dlgSave = new System.Windows.Forms.SaveFileDialog();
+            this.contextSoftware = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.mnuUninstall = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -80,6 +82,7 @@
             this.splitContainer.Panel2.SuspendLayout();
             this.splitContainer.SuspendLayout();
             this.contextMenu.SuspendLayout();
+            this.contextSoftware.SuspendLayout();
             this.SuspendLayout();
             // 
             // imgList
@@ -216,21 +219,21 @@
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.saveToolStripMenuItem.Text = "Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.openToolStripMenuItem.Text = "Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -278,7 +281,7 @@
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.lblScanning,
             this.pgInfo});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 720);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 711);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(1248, 22);
             this.statusStrip1.TabIndex = 34;
@@ -378,6 +381,7 @@
             this.lstSoftware.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.lstSoftware.ContextMenuStrip = this.contextSoftware;
             this.lstSoftware.FullRowSelect = true;
             this.lstSoftware.GridLines = true;
             this.lstSoftware.Location = new System.Drawing.Point(10, 19);
@@ -471,12 +475,26 @@
             this.dlgSave.DefaultExt = "*.bin";
             this.dlgSave.Filter = "Saved Files | *.bin";
             // 
+            // contextSoftware
+            // 
+            this.contextSoftware.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuUninstall});
+            this.contextSoftware.Name = "contextMenu";
+            this.contextSoftware.Size = new System.Drawing.Size(168, 26);
+            // 
+            // mnuUninstall
+            // 
+            this.mnuUninstall.Name = "mnuUninstall";
+            this.mnuUninstall.Size = new System.Drawing.Size(167, 22);
+            this.mnuUninstall.Text = "Uninstall Selected";
+            this.mnuUninstall.Click += new System.EventHandler(this.toolUninstall_Click);
+            // 
             // NetVis
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1240, 759);
+            this.ClientSize = new System.Drawing.Size(1240, 750);
             this.Controls.Add(this.splitContainer);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.chkOnline);
@@ -504,6 +522,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).EndInit();
             this.splitContainer.ResumeLayout(false);
             this.contextMenu.ResumeLayout(false);
+            this.contextSoftware.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -553,6 +572,8 @@
         private System.Windows.Forms.ToolStripMenuItem rdcMenu;
         private System.Windows.Forms.ToolStripMenuItem showMachineDetails;
         private System.Windows.Forms.SaveFileDialog dlgSave;
+        private System.Windows.Forms.ContextMenuStrip contextSoftware;
+        private System.Windows.Forms.ToolStripMenuItem mnuUninstall;
     }
 }
 
